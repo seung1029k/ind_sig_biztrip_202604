@@ -25,9 +25,11 @@
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
       scroll-behavior: smooth;
+      background: var(--bg);
     }
 
     body {
+      min-height: 100dvh;
       font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
       color: var(--text);
       background:
@@ -35,6 +37,7 @@
         linear-gradient(180deg, #f6f8fc 0%, var(--bg) 100%);
       line-height: 1.6;
       padding-bottom: calc(32px + env(safe-area-inset-bottom));
+      overflow-x: hidden;
     }
 
     a {
@@ -403,6 +406,7 @@
       font-size: 13px;
       font-weight: 700;
       min-height: 44px;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .action.alt {
@@ -441,6 +445,48 @@
       font-size: 12px;
     }
 
+    @media (min-width: 768px) and (max-width: 1180px) {
+      .shell {
+        max-width: 960px;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero {
+        padding: 32px;
+        border-radius: 32px;
+      }
+
+      .route-strip,
+      .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hotel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .day-head,
+      .hotel-card,
+      .summary-card {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .event {
+        grid-template-columns: 108px 1fr;
+        gap: 18px;
+      }
+
+      .event-time {
+        font-size: 24px;
+      }
+
+      .kv {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 1024px) {
       .route-strip,
       .summary-grid,
@@ -476,6 +522,100 @@
       .event-time small {
         display: inline;
         margin-left: 8px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      body {
+        padding-bottom: calc(44px + env(safe-area-inset-bottom));
+      }
+
+      .shell {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .hero {
+        border-radius: 24px;
+        padding: 20px 16px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .hero p,
+      .summary-sub,
+      .event-sub,
+      .notice ul {
+        font-size: 15px;
+      }
+
+      .route-card,
+      .summary-card,
+      .event,
+      .hotel-card,
+      .notice {
+        border-radius: 18px;
+      }
+
+      .route-card,
+      .summary-card,
+      .event,
+      .hotel-card {
+        padding: 15px;
+      }
+
+      .summary-value {
+        font-size: 26px;
+      }
+
+      .day-head {
+        padding: 18px 16px;
+      }
+
+      .day-date {
+        font-size: 19px;
+      }
+
+      .day-chip,
+      .pill,
+      .section-badge,
+      .eyebrow {
+        font-size: 11px;
+      }
+
+      .event-time {
+        font-size: 22px;
+      }
+
+      .event-time small {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+
+      .event-title {
+        font-size: 18px;
+      }
+
+      .hotel-name {
+        font-size: 20px;
+      }
+
+      .hotel-top {
+        flex-direction: column;
+      }
+
+      .rate-chip {
+        width: 100%;
+        text-align: left;
+      }
+
+      .action {
+        width: 100%;
+        min-height: 48px;
+        font-size: 14px;
       }
     }
 

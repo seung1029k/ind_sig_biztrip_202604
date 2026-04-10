@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>IDN · SG 법인 포털 | Mirae Asset Securities</title>
   <style>
     :root {
@@ -19,10 +19,11 @@
       --shadow-soft: 0 10px 26px rgba(15, 23, 42, 0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', -apple-system, 'Malgun Gothic', sans-serif; background: var(--bg); color: #1f2937; font-size: 15px; line-height: 1.6; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    html { background: var(--bg); }
+    body { min-height: 100dvh; font-family: 'Segoe UI', -apple-system, 'Malgun Gothic', sans-serif; background: var(--bg); color: #1f2937; font-size: 15px; line-height: 1.6; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; padding-bottom: env(safe-area-inset-bottom); overflow-x: hidden; }
 
     /* ═══ HEADER ═══ */
-    header { background: var(--navy); padding: 22px 40px; display: flex; align-items: center; gap: 14px; border-bottom: 4px solid var(--orange); position: sticky; top: 0; z-index: 100; box-shadow: 0 10px 28px rgba(15,23,42,.28); }
+    header { background: rgba(26, 39, 68, 0.94); padding: calc(22px + env(safe-area-inset-top)) 40px 22px; display: flex; align-items: center; gap: 14px; border-bottom: 4px solid var(--orange); position: sticky; top: 0; z-index: 100; box-shadow: 0 10px 28px rgba(15,23,42,.28); backdrop-filter: blur(14px); }
     .logo { display: flex; flex-direction: column; }
     .logo-name { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: .3px; }
     .logo-sub { font-size: 12px; color: rgba(255,255,255,.6); letter-spacing: 1.5px; text-transform: uppercase; }
@@ -32,14 +33,14 @@
     /* ═══ TOP NAV (HR / Finance) ═══ */
     .top-nav { background: var(--navy-light); display: flex; padding: 0 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .top-nav::-webkit-scrollbar { display: none; }
-    .top-nav-item { padding: 14px 26px; cursor: pointer; font-weight: 700; font-size: 15px; color: rgba(255,255,255,.68); border-bottom: 3px solid transparent; transition: .2s; user-select: none; letter-spacing: .3px; }
+    .top-nav-item { padding: 14px 26px; cursor: pointer; font-weight: 700; font-size: 15px; color: rgba(255,255,255,.68); border-bottom: 3px solid transparent; transition: .2s; user-select: none; letter-spacing: .3px; min-height: 50px; display: flex; align-items: center; -webkit-tap-highlight-color: transparent; scroll-snap-align: start; }
     .top-nav-item:hover { color: #fff; }
     .top-nav-item.active { color: #fff; border-bottom-color: var(--orange); }
 
     /* ═══ SUB TABS (IDN / SG) ═══ */
     .sub-tabs { background: #fff; border-bottom: 1px solid var(--border); display: flex; padding: 0 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .sub-tabs::-webkit-scrollbar { display: none; }
-    .sub-tab { padding: 14px 24px; cursor: pointer; font-weight: 700; font-size: 15px; color: var(--gray); border-bottom: 3px solid transparent; transition: .2s; user-select: none; }
+    .sub-tab { padding: 14px 24px; cursor: pointer; font-weight: 700; font-size: 15px; color: var(--gray); border-bottom: 3px solid transparent; transition: .2s; user-select: none; min-height: 50px; display: flex; align-items: center; -webkit-tap-highlight-color: transparent; scroll-snap-align: start; }
     .sub-tab:hover { color: var(--orange); }
     .sub-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
 
@@ -197,10 +198,29 @@
 
     footer { text-align: center; padding: 24px 24px calc(24px + env(safe-area-inset-bottom)); font-size: 13px; color: var(--gray); border-top: 1px solid var(--border); background: #fff; margin-top: 24px; }
 
-    @media (max-width: 1024px) {
-      header {
-        padding-top: calc(18px + env(safe-area-inset-top));
+    @media (min-width: 768px) and (max-width: 1180px) {
+      .content {
+        max-width: 1120px;
+        padding: 32px 24px 48px;
       }
+      .stats-row,
+      .kpi-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .profile-grid,
+      .inv-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .monthly-row {
+        flex-direction: column;
+      }
+      .table-wrap table {
+        min-width: 760px;
+      }
+    }
+
+    @media (max-width: 1024px) {
       .content {
         padding: 30px 24px 44px;
       }
@@ -230,6 +250,7 @@
         padding-left: 16px;
         padding-right: 16px;
         gap: 6px;
+        scroll-snap-type: x proximity;
       }
       .top-nav-item,
       .sub-tab {
@@ -266,7 +287,7 @@
       }
       .itinerary-modal-panel {
         width: 100%;
-        height: min(92vh, 980px);
+        height: min(92dvh, 980px);
         border-radius: 20px;
       }
       .itinerary-modal-header {
@@ -318,7 +339,7 @@
         padding: 8px;
       }
       .itinerary-modal-panel {
-        height: calc(100vh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+        height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
         border-radius: 18px;
       }
       .itinerary-modal-header {
@@ -334,6 +355,36 @@
       .itinerary-close {
         flex: 1;
         text-align: center;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .header-right {
+        gap: 8px;
+      }
+      .header-badge {
+        padding: 6px 11px;
+        font-size: 11px;
+      }
+      .top-nav-item,
+      .sub-tab {
+        min-height: 48px;
+        font-size: 14px;
+      }
+      .content {
+        padding-bottom: calc(34px + env(safe-area-inset-bottom));
+      }
+      .stat,
+      .kpi,
+      .profile-card,
+      .inv-card {
+        border-radius: 14px;
+      }
+      .section-title h2 {
+        font-size: 19px;
+      }
+      .itinerary-modal-header {
+        padding-bottom: 14px;
       }
     }
   </style>

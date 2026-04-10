@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>인도네시아 & 싱가포르 법인 인사 현황 | Mirae Asset Securities</title>
   <style>
     :root {
@@ -19,8 +19,10 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
 
     body {
+      min-height: 100dvh;
       font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
       background: var(--bg);
       color: #1f2937;
@@ -28,17 +30,20 @@
       line-height: 1.6;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      padding-bottom: env(safe-area-inset-bottom);
+      overflow-x: hidden;
     }
 
     /* ─── Header ─── */
     header {
       background: var(--navy);
-      padding: 24px 40px;
+      padding: calc(24px + env(safe-area-inset-top)) 40px 24px;
       display: flex;
       align-items: center;
       gap: 16px;
       border-bottom: 4px solid var(--orange);
       box-shadow: 0 8px 28px rgba(15, 23, 42, 0.18);
+      backdrop-filter: blur(14px);
     }
     .logo-bar {
       display: flex;
@@ -95,6 +100,10 @@
       border-bottom: 3px solid transparent;
       transition: color 0.2s, border-color 0.2s;
       user-select: none;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      -webkit-tap-highlight-color: transparent;
     }
     .tab:hover { color: var(--orange); }
     .tab.active {
