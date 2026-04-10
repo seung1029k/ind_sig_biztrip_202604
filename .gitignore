@@ -1,5 +1,4 @@
 .claude/
-extracted_people_photos/
 *.pdf
 render_*.png
 manifest.csv
