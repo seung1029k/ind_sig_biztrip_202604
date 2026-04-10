@@ -3,78 +3,636 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta http-equiv="refresh" content="0; url=IDN_SG_Portal.html">
-  <title>Mirae Asset Portal</title>
+  <title>Mirae Asset Business Hub</title>
   <style>
     :root {
-      --navy: #16233f;
+      --navy: #14213d;
+      --navy-soft: #213560;
       --orange: #f37321;
-      --bg: #f4f6fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
+      --cream: #fff7ef;
+      --bg: #eef3f9;
+      --card: rgba(255, 255, 255, 0.88);
+      --line: rgba(20, 33, 61, 0.1);
+      --text: #172033;
+      --muted: #667085;
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #fff3ea 0, var(--bg) 48%, #eef2f8 100%);
-      color: var(--text);
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background: var(--bg);
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      scroll-behavior: smooth;
     }
-    .card {
-      width: min(560px, 100%);
-      background: var(--card);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
-      text-align: center;
+
+    body {
+      min-height: 100dvh;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(243, 115, 33, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(20, 33, 61, 0.16), transparent 32%),
+        linear-gradient(180deg, #f9fbfe 0%, var(--bg) 100%);
+      overflow-x: hidden;
     }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      color: var(--navy);
-    }
-    p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+
     a {
-      display: inline-block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: calc(18px + env(safe-area-inset-top)) 20px calc(34px + env(safe-area-inset-bottom));
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .top-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      backdrop-filter: blur(14px);
+      white-space: nowrap;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(243, 115, 33, 0.36), transparent 18%),
+        linear-gradient(140deg, rgba(20, 33, 61, 0.98), rgba(33, 53, 96, 0.94));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -46px;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 68%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+      max-width: 11ch;
+    }
+
+    .hero-copy {
+      max-width: 60ch;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
       padding: 12px 18px;
       border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      -webkit-tap-highlight-color: transparent;
     }
-    .primary {
+
+    .button.primary {
       background: var(--orange);
       color: #fff;
+      box-shadow: 0 14px 26px rgba(243, 115, 33, 0.24);
     }
-    .secondary {
-      background: #eef2ff;
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .panel-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.62);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .panel-title {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .panel-copy {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mini-stat {
+      padding: 14px 12px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.05;
+    }
+
+    .mini-stat span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .section {
+      margin-top: 26px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
       color: var(--navy);
+      letter-spacing: -0.04em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 56ch;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .link-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.84);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .link-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--orange), rgba(243, 115, 33, 0.18));
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--cream);
+      border: 1px solid rgba(243, 115, 33, 0.14);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .card-title {
+      margin-top: 16px;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+    }
+
+    .card-text {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .meta-chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .card-link {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .portal-card {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.84)),
+        linear-gradient(135deg, rgba(243, 115, 33, 0.08), transparent 45%);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .quick-card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .quick-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .link-grid,
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .shell {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        border-radius: 24px;
+        padding: 24px 20px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .shell {
+        padding: calc(14px + env(safe-area-inset-top)) 12px calc(30px + env(safe-area-inset-bottom));
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-copy,
+      .card-text,
+      .quick-card p,
+      .section-copy {
+        font-size: 15px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .link-card,
+      .quick-card,
+      .hero-panel {
+        border-radius: 20px;
+      }
+
+      .card-title {
+        font-size: 22px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Mirae Asset Portal</h1>
-    <p>포털 페이지로 자동 이동합니다. 이동하지 않으면 아래 버튼을 눌러 주세요.</p>
-    <div class="actions">
-      <a class="primary" href="IDN_SG_Portal.html">포털 열기</a>
-      <a class="secondary" href="trip_itinerary_apr2026.html">출장 일정표</a>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-name">Mirae Asset Business Hub</div>
+        <div class="brand-sub">Indonesia · Singapore · April 2026</div>
+      </div>
+      <div class="top-pill">모바일 / 아이패드 최적화</div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">홈페이지 · 랜딩페이지</div>
+          <h1>한 화면에서 시작하는 IDN · SG 업무 포털</h1>
+          <p class="hero-copy">
+            이 홈 화면에서 인도네시아·싱가포르 법인 포털, HR 정보, 재무 실적, 출장 일정표까지 바로 들어갈 수 있도록 정리했습니다.
+            메인 허브는 포털이며, 세부 화면은 각각 독립 페이지로 연결됩니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="IDN_SG_Portal.html">IDN_SG_Portal 열기</a>
+            <a class="button secondary" href="trip_itinerary_apr2026.html">출장 일정표 보기</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="panel-label">Main Entry</div>
+          <div class="panel-title">IDN_SG_Portal를 메인 하위 페이지로 연결</div>
+          <div class="panel-copy">
+            랜딩페이지에서 포털로 들어간 뒤, 포털 내부에서 인사·재무·출장 일정표까지 이어서 볼 수 있는 구조입니다.
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong>1</strong>
+              <span>Landing Home</span>
+            </div>
+            <div class="mini-stat">
+              <strong>4</strong>
+              <span>Linked Pages</span>
+            </div>
+            <div class="mini-stat">
+              <strong>iOS</strong>
+              <span>Optimized View</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Main Navigation</div>
+          <div class="section-copy">홈에서 시작하고, 하위에서 각 업무 화면으로 이동하는 구조입니다.</div>
+        </div>
+      </div>
+
+      <div class="link-grid">
+        <a class="link-card portal-card" href="IDN_SG_Portal.html">
+          <div>
+            <div class="card-tag">Main Portal</div>
+            <div class="card-title">IDN_SG_Portal</div>
+            <div class="card-text">
+              인도네시아·싱가포르 법인의 메인 포털 화면입니다. HR, 재무, 그리고 출장 일정표 진입까지 이 페이지를 기준으로 연결됩니다.
+            </div>
+            <div class="card-meta">
+              <span class="meta-chip">HR</span>
+              <span class="meta-chip">Finance</span>
+              <span class="meta-chip">Trip Overlay</span>
+            </div>
+          </div>
+          <div class="card-link">포털로 이동 →</div>
+        </a>
+
+        <a class="link-card" href="trip_itinerary_apr2026.html">
+          <div>
+            <div class="card-tag">Trip View</div>
+            <div class="card-title">출장 일정표</div>
+            <div class="card-text">
+              항공편, 호텔, 주소, 연락처, 지도 링크까지 한 장으로 정리한 출장 페이지입니다. 아이폰과 아이패드에서 읽기 쉽게 최적화되어 있습니다.
+            </div>
+            <div class="card-meta">
+              <span class="meta-chip">Flights</span>
+              <span class="meta-chip">Hotels</span>
+              <span class="meta-chip">Contacts</span>
+            </div>
+          </div>
+          <div class="card-link">일정표 열기 →</div>
+        </a>
+
+        <a class="link-card" href="IDN_SG_HR.html">
+          <div>
+            <div class="card-tag">HR View</div>
+            <div class="card-title">인사 정보</div>
+            <div class="card-text">
+              각 법인의 인원 현황, 임원 프로필, 부서장 정보를 개별 페이지로 확인할 수 있습니다.
+            </div>
+            <div class="card-meta">
+              <span class="meta-chip">Headcount</span>
+              <span class="meta-chip">Profiles</span>
+            </div>
+          </div>
+          <div class="card-link">HR 페이지 열기 →</div>
+        </a>
+
+        <a class="link-card" href="IDN_SG_Finance.html">
+          <div>
+            <div class="card-tag">Finance View</div>
+            <div class="card-title">재무 실적</div>
+            <div class="card-text">
+              월별 실적, 손익계산서, 재무상태표, 투자 현황을 개별 화면에서 빠르게 확인할 수 있습니다.
+            </div>
+            <div class="card-meta">
+              <span class="meta-chip">P&amp;L</span>
+              <span class="meta-chip">Balance Sheet</span>
+              <span class="meta-chip">Investments</span>
+            </div>
+          </div>
+          <div class="card-link">재무 페이지 열기 →</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">사용 흐름</div>
+          <div class="section-copy">아이폰에서는 홈에서 포털로, 아이패드에서는 홈에서 필요한 화면으로 바로 진입하는 흐름을 염두에 두었습니다.</div>
+        </div>
+      </div>
+
+      <div class="quick-grid">
+        <div class="quick-card">
+          <strong>1. 홈에서 시작</strong>
+          <p>루트 주소에 접속하면 이 랜딩페이지가 먼저 열리고, 여기서 하위 화면으로 분기됩니다.</p>
+        </div>
+        <div class="quick-card">
+          <strong>2. 포털 중심 구조</strong>
+          <p>IDN_SG_Portal 페이지가 메인 허브 역할을 하고, 출장 일정표도 포털 안에서 다시 열 수 있습니다.</p>
+        </div>
+        <div class="quick-card">
+          <strong>3. 직접 진입도 가능</strong>
+          <p>필요하면 HR, 재무, 출장 일정표를 각각 개별 페이지로 열 수 있어 발표용과 실사용 모두 대응됩니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Mirae Asset Securities · Landing page → Portal → HR / Finance / Trip itinerary
     </div>
   </main>
 </body>
