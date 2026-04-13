@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <meta name="theme-color" content="#1A2744">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <script src="access-guard.js"></script>
   <title>인도네시아 & 싱가포르 법인 재무 실적 | Mirae Asset Securities</title>
   <style>
     :root {
+      color-scheme: light;
       --orange: #F37321;
       --navy: #1A2744;
       --navy-light: #243560;
@@ -24,28 +27,30 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { background: var(--bg); }
-    body { min-height: 100dvh; font-family: 'Segoe UI', -apple-system, 'Malgun Gothic', sans-serif; background: var(--bg); color: #1f2937; font-size: 15px; line-height: 1.6; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; padding-bottom: env(safe-area-inset-bottom); overflow-x: hidden; }
+    body { min-height: 100svh; min-height: 100dvh; font-family: 'Segoe UI', -apple-system, 'Malgun Gothic', sans-serif; background: var(--bg); color: #1f2937; font-size: 15px; line-height: 1.6; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; padding-bottom: env(safe-area-inset-bottom); overflow-x: hidden; overscroll-behavior-y: none; }
+    a,
+    button { touch-action: manipulation; }
 
     /* ─── Header ─── */
-    header { background: var(--navy); padding: calc(24px + env(safe-area-inset-top)) 40px 24px; display: flex; align-items: center; gap: 16px; border-bottom: 4px solid var(--orange); box-shadow: 0 8px 28px rgba(15, 23, 42, 0.18); backdrop-filter: blur(14px); }
+    header { background: var(--navy); padding: calc(24px + env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) 24px max(24px, env(safe-area-inset-left)); display: flex; align-items: center; gap: 16px; border-bottom: 4px solid var(--orange); box-shadow: 0 8px 28px rgba(15, 23, 42, 0.18); backdrop-filter: blur(14px); flex-wrap: wrap; }
     .logo-name { font-size: 24px; font-weight: 800; color: #fff; }
     .logo-sub { font-size: 13px; color: rgba(255,255,255,.68); letter-spacing: 1px; text-transform: uppercase; }
     .header-badge { margin-left: auto; background: var(--orange); color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; }
 
     /* ─── Page title ─── */
-    .page-title { background: var(--navy-light); color: white; padding: 24px 40px; }
+    .page-title { background: var(--navy-light); color: white; padding: 24px max(24px, env(safe-area-inset-right)) 24px max(24px, env(safe-area-inset-left)); }
     .page-title h1 { font-size: 30px; font-weight: 800; }
     .page-title p { font-size: 14px; color: rgba(255,255,255,.72); margin-top: 6px; }
 
     /* ─── Tabs ─── */
-    .tabs { display: flex; background: #fff; border-bottom: 1px solid var(--border); padding: 0 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .tabs { display: flex; background: #fff; border-bottom: 1px solid var(--border); padding: 0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left)); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .tabs::-webkit-scrollbar { display: none; }
-    .tab { padding: 16px 30px; cursor: pointer; font-weight: 700; font-size: 15px; color: var(--gray); border-bottom: 3px solid transparent; transition: .2s; user-select: none; min-height: 50px; display: flex; align-items: center; -webkit-tap-highlight-color: transparent; }
+    .tab { padding: 16px 30px; cursor: pointer; font-weight: 700; font-size: 15px; color: var(--gray); border-bottom: 3px solid transparent; transition: .2s; user-select: none; min-height: 50px; display: flex; align-items: center; -webkit-tap-highlight-color: transparent; white-space: nowrap; }
     .tab:hover { color: var(--orange); }
     .tab.active { color: var(--orange); border-bottom-color: var(--orange); }
 
     /* ─── Content ─── */
-    .content { padding: 42px 40px 56px; max-width: 1680px; margin: 0 auto; }
+    .content { padding: 42px max(24px, env(safe-area-inset-right)) 56px max(24px, env(safe-area-inset-left)); max-width: 1680px; margin: 0 auto; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
@@ -126,6 +131,10 @@
     @media (max-width: 1024px) {
       header {
         padding-top: calc(20px + env(safe-area-inset-top));
+        align-items: flex-start;
+      }
+      .header-badge {
+        margin-left: 0;
       }
       .content {
         padding: 30px 24px 44px;
@@ -152,8 +161,8 @@
       }
       .tabs {
         gap: 6px;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
       }
       .tab {
         flex: 0 0 auto;
@@ -179,7 +188,7 @@
     }
 
     @media (max-width: 768px) {
-      header, .page-title, .content, .tabs { padding-left: 16px; padding-right: 16px; }
+      header, .page-title, .content, .tabs { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
       .monthly-grid { flex-direction: column; }
       .page-title h1 { font-size: 24px; }
       .section-title h2 { font-size: 20px; }
@@ -188,13 +197,13 @@
 
     @media (max-width: 480px) {
       header {
-        padding: calc(16px + env(safe-area-inset-top)) 16px 16px;
+        padding: calc(16px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
       }
       .page-title {
-        padding: 18px 16px;
+        padding: 18px max(16px, env(safe-area-inset-right)) 18px max(16px, env(safe-area-inset-left));
       }
       .content {
-        padding: 22px 16px 36px;
+        padding: 22px max(16px, env(safe-area-inset-right)) 36px max(16px, env(safe-area-inset-left));
       }
       .kpi-row {
         grid-template-columns: 1fr;
