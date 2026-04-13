@@ -349,6 +349,144 @@
       gap: 18px;
     }
 
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .doc-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 26px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .doc-card.primary {
+      background: linear-gradient(180deg, rgba(243, 115, 33, 0.08), rgba(255, 255, 255, 0.92));
+    }
+
+    .doc-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .doc-title {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--navy);
+    }
+
+    .doc-sub {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .doc-image-wrap {
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .doc-image {
+      display: block;
+      width: min(100%, 360px);
+      border-radius: 22px;
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    .doc-copy {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .doc-file {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .doc-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(10, 18, 34, 0.72);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease;
+    }
+
+    .doc-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .doc-modal-panel {
+      width: min(100%, 560px);
+      max-height: min(92dvh, 940px);
+      overflow: auto;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.32);
+      padding: 18px;
+    }
+
+    .doc-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .doc-modal-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .doc-modal-close {
+      border: 0;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      min-width: 44px;
+      min-height: 44px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .doc-modal-image {
+      display: block;
+      width: 100%;
+      border-radius: 20px;
+    }
+
     .hotel-card {
       background: var(--card);
       border: 1px solid rgba(255, 255, 255, 0.7);
@@ -469,6 +607,10 @@
         grid-template-columns: 1fr;
       }
 
+      .doc-grid {
+        grid-template-columns: 1fr;
+      }
+
       .day-head,
       .hotel-card,
       .summary-card {
@@ -513,7 +655,8 @@
 
       .route-strip,
       .summary-grid,
-      .hotel-grid {
+      .hotel-grid,
+      .doc-grid {
         grid-template-columns: 1fr;
       }
 
@@ -709,6 +852,91 @@
         <div class="summary-value">4건</div>
         <div class="summary-sub">항공 2건, 호텔 2건</div>
       </article>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Indonesia Entry Docs</h2>
+        <span class="section-badge">Arrival Card + eVisa</span>
+      </div>
+
+      <div class="doc-grid">
+        <article class="doc-card primary">
+          <div class="doc-top">
+            <div>
+              <div class="doc-title">Arrival Card QR</div>
+              <div class="doc-sub">Show this screen at Indonesia arrival if requested</div>
+            </div>
+            <div class="rate-chip">
+              14 Apr 2026<br>
+              2604130007788
+            </div>
+          </div>
+
+          <div class="doc-image-wrap">
+            <img class="doc-image" src="travel_docs/indonesia_arrival_card_qr.jpeg" alt="Indonesia arrival card QR code for Seung Wook Kim">
+          </div>
+
+          <div class="kv">
+            <div class="kv-item">
+              <div class="kv-label">Name</div>
+              <div class="kv-value">SEUNG WOOK KIM</div>
+            </div>
+            <div class="kv-item">
+              <div class="kv-label">Passport</div>
+              <div class="kv-value">151070978</div>
+            </div>
+            <div class="kv-item">
+              <div class="kv-label">Arrival Date</div>
+              <div class="kv-value">14 April 2026</div>
+            </div>
+            <div class="kv-item">
+              <div class="kv-label">Nationality</div>
+              <div class="kv-value">United Kingdom - British Citizen</div>
+            </div>
+          </div>
+
+          <div class="link-row">
+            <button class="action" type="button" data-doc-image="travel_docs/indonesia_arrival_card_qr.jpeg" data-doc-title="Indonesia Arrival Card QR">QR 크게 보기</button>
+            <a class="action alt" href="travel_docs/indonesia_arrival_card_qr.jpeg" target="_blank" rel="noreferrer">이미지 원본</a>
+            <a class="action alt" href="indonesia_entry_pass.html" target="_blank" rel="noreferrer">오프라인 패스 열기</a>
+          </div>
+        </article>
+
+        <article class="doc-card">
+          <div class="doc-top">
+            <div>
+              <div class="doc-title">eVisa PDF</div>
+              <div class="doc-sub">Open the visa PDF directly from your phone</div>
+            </div>
+            <div class="rate-chip">
+              PDF<br>
+              Ready
+            </div>
+          </div>
+
+          <p class="doc-copy">
+            인도네시아 e비자 PDF를 일정표에 연결했습니다. 입국 심사대에서는 아래 버튼으로 PDF를 바로 열어
+            보여주면 됩니다.
+          </p>
+
+          <div class="doc-file">indonesia_evisa_0414.pdf</div>
+
+          <div class="link-row">
+            <a class="action" href="travel_docs/indonesia_evisa_0414.pdf" target="_blank" rel="noreferrer">eVisa PDF 열기</a>
+            <a class="action alt" href="travel_docs/indonesia_evisa_0414.pdf" download>PDF 다운로드</a>
+          </div>
+
+          <div class="notice">
+            <h3>Before landing</h3>
+            <ul>
+              <li>QR 이미지와 e비자 PDF가 모두 정상적으로 열리는지 출발 전에 한 번 확인</li>
+              <li>공항에서 데이터가 불안정할 수 있으니 PDF 다운로드 또는 탭 미리 열기 권장</li>
+              <li>표시 정보와 여권 실물이 일치하는지 다시 확인</li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="section">
@@ -1015,6 +1243,57 @@
     <div class="footer">
       출처: 대한항공 여정표, 싱가포르항공 여정표, The Langham Jakarta 예약확인서, The Fullerton Hotel Singapore 예약확인서
     </div>
+    <div class="doc-modal" id="docModal" aria-hidden="true">
+      <div class="doc-modal-panel">
+        <div class="doc-modal-head">
+          <div class="doc-modal-title" id="docModalTitle">Travel Document</div>
+          <button class="doc-modal-close" id="docModalClose" type="button">닫기</button>
+        </div>
+        <img class="doc-modal-image" id="docModalImage" src="" alt="">
+      </div>
+    </div>
   </main>
+  <script>
+    (function () {
+      const modal = document.getElementById('docModal');
+      const modalImage = document.getElementById('docModalImage');
+      const modalTitle = document.getElementById('docModalTitle');
+      const closeButton = document.getElementById('docModalClose');
+
+      function openDocImage(src, title) {
+        modalImage.src = src;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDocImage() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImage.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', function (event) {
+        const trigger = event.target.closest('[data-doc-image]');
+        if (trigger) {
+          openDocImage(trigger.getAttribute('data-doc-image'), trigger.getAttribute('data-doc-title') || 'Travel Document');
+          return;
+        }
+
+        if (event.target === modal || event.target === closeButton) {
+          closeDocImage();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeDocImage();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
