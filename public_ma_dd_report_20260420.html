@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <meta name="theme-color" content="#16233f">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>Public.com M&amp;A DD Report | Mirae Asset</title>
+  <script src="access-guard.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #16233f;
+      --orange: #f37321;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5c667a;
+      --line: rgba(22, 35, 63, 0.1);
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+      --soft: #fffaf5;
+      --soft-navy: #eef3fb;
+      --danger: #c84f3a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(243, 115, 33, 0.1), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, rgba(22, 35, 63, 0.98), rgba(27, 52, 95, 0.96));
+      color: #fff;
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -18% auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(243, 115, 33, 0.28), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 880px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 16px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 20px;
+      margin-top: 22px;
+      align-items: start;
+    }
+
+    .panel,
+    .section,
+    .callout {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      position: sticky;
+      top: 18px;
+      padding: 22px 18px;
+    }
+
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: var(--navy);
+    }
+
+    .panel nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .panel a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid transparent;
+    }
+
+    .panel a:hover {
+      color: var(--navy);
+      border-color: rgba(243, 115, 33, 0.22);
+      background: var(--soft);
+    }
+
+    .panel-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--soft-navy);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .callout {
+      padding: 22px 24px;
+      background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
+    }
+
+    .callout h2,
+    .section h2 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .callout p,
+    .section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .summary-grid,
+    .risk-grid,
+    .qa-grid,
+    .track-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .risk-grid,
+    .track-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .qa-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric-card,
+    .risk-card,
+    .qa-card,
+    .track-card {
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .metric-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.04em;
+    }
+
+    .metric-sub {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section {
+      padding: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--soft);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .list strong,
+    .risk-card strong,
+    .qa-card strong,
+    .track-card strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .risk-card.positive {
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+    }
+
+    .risk-card.warning {
+      background: linear-gradient(180deg, #fff9f7 0%, #ffffff 100%);
+    }
+
+    .risk-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .risk-title.good {
+      background: #eef6ff;
+      color: #285a9e;
+    }
+
+    .risk-title.bad {
+      background: #fff0ec;
+      color: var(--danger);
+    }
+
+    .footnote {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .source-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .source-list a {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--navy);
+      font-size: 14px;
+      word-break: break-all;
+    }
+
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 22px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+      }
+
+      .summary-grid,
+      .risk-grid,
+      .qa-grid,
+      .track-grid,
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 14px;
+      }
+
+      .hero,
+      .section,
+      .callout,
+      .panel {
+        border-radius: 24px;
+      }
+
+      .hero,
+      .section,
+      .callout {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <header class="hero">
+      <div class="eyebrow">Restricted M&amp;A Material</div>
+      <h1>Public.com M&amp;A 실사 사전 분석 보고서</h1>
+      <p>의사결정 직전 단계에서 확인해야 할 재무, 밸류에이션, 규제, 조직, PMI 쟁점을 한 페이지 흐름으로 정리했습니다. 결론은 명확합니다. 실사 착수는 타당하지만, 가격 상향은 확인적 실사 이후가 맞습니다.</p>
+
+      <div class="hero-grid">
+        <div class="hero-stat">
+          <strong>Go for DD</strong>
+          <span>실사 착수는 타당</span>
+        </div>
+        <div class="hero-stat">
+          <strong>No Price Raise</strong>
+          <span>실사 전 가격 상향은 비권고</span>
+        </div>
+        <div class="hero-stat">
+          <strong>Structured Deal</strong>
+          <span>업프론트보다 구조 설계가 중요</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="panel">
+        <h2>Quick Navigation</h2>
+        <nav>
+          <a href="#decision">한 줄 결론</a>
+          <a href="#numbers">핵심 수치</a>
+          <a href="#valuation">밸류에이션 해석</a>
+          <a href="#risks">핵심 리스크</a>
+          <a href="#dd">실사 질문</a>
+          <a href="#workstreams">워크스트림</a>
+          <a href="#structure">딜 구조</a>
+          <a href="#sources">참고 자료</a>
+        </nav>
+        <div class="panel-note">
+          Password gate is enabled via <code>access-guard.js</code>. Public link exposure is possible, but document content remains gated.
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="callout" id="decision">
+          <h2>한 줄 결론</h2>
+          <p>전략적 적합성은 높고 실사 진행 가치는 충분합니다. 다만 현재 확보 자료 기준으로는 가격을 더 올리기보다, 확인적 실사로 핵심 숫자와 규제 리스크를 먼저 잠그는 것이 우선입니다.</p>
+
+          <div class="risk-grid">
+            <div class="risk-card positive">
+              <div class="risk-title good">Why It Matters</div>
+              <strong>전략적 매력은 높음</strong>
+              미국 리테일 브로커리지 플랫폼을 즉시 확보할 수 있고, Global X와의 상품·유통·AI 시너지가 분명합니다.
+            </div>
+            <div class="risk-card warning">
+              <div class="risk-title bad">What Changes the Deal</div>
+              <strong>숫자와 규제가 가격을 바꿈</strong>
+              내부 재무와 외부 advisory의 매출 인식 차이, FINRA 이력, 자본투입 필요성이 밸류에이션과 구조를 직접 바꿉니다.
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="numbers">
+          <div class="section-header">
+            <h2>핵심 수치 Snapshot</h2>
+            <div class="tag">Internal Workbook + Web Cross-check</div>
+          </div>
+          <p>내부 workbook과 공식 웹 자료를 교차해서 보면, 사업은 빠르게 커지고 있지만 consolidated 손익과 현금흐름은 아직 방어적 접근이 필요한 구간입니다.</p>
+
+          <div class="summary-grid">
+            <div class="metric-card">
+              <div class="metric-label">2025 Revenue</div>
+              <div class="metric-value">$67.3M</div>
+              <div class="metric-sub">2024 대비 약 +69.7%</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Q4 2025 AUM</div>
+              <div class="metric-value">$3.52B</div>
+              <div class="metric-sub">Q4 2024 대비 약 +98.8%</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Q4 2025 Cash</div>
+              <div class="metric-value">$45.4M</div>
+              <div class="metric-sub">2025 operating cash outflow 약 -$44.8M</div>
+            </div>
+          </div>
+
+          <ul class="list">
+            <li><strong>2025 Gross Profit</strong>약 $35.0M, gross margin 약 52.0%입니다.</li>
+            <li><strong>2025 Adjusted EBITDA</strong>약 -$43.7M입니다. 성장 대비 비용구조가 아직 무겁습니다.</li>
+            <li><strong>2025 Net Income</strong>약 -$94.9M으로, 공식 메시지의 “core brokerage profitable”과 consolidated 숫자를 분리해서 봐야 합니다.</li>
+            <li><strong>Q4 2025 Customer Base</strong>approved brokerage customers 약 277만 명, funded customers 약 54.6만 명입니다.</li>
+            <li><strong>Funded Customer Economics</strong>Q4 2025 funded customer 1인당 AUM은 약 $6.45k 수준입니다.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="valuation">
+          <div class="section-header">
+            <h2>밸류에이션 해석</h2>
+            <div class="tag">Price Discipline</div>
+          </div>
+          <p>현재 자료만 놓고 보면 재무 기준 가격과 전략 프리미엄 기준 가격이 아직 완전히 합쳐지지 않습니다. 따라서 headline valuation보다 구조 설계가 중요합니다.</p>
+
+          <div class="qa-grid">
+            <div class="qa-card">
+              <strong>내부 숫자 기준</strong>
+              2025 매출 $67.3M 기준 8.0x는 약 $539M, 10.0x는 약 $673M, 11.6x는 약 $781M 수준입니다. 내부 협상 범위인 $680M~$750M과 더 잘 연결됩니다.
+            </div>
+            <div class="qa-card">
+              <strong>외부 advisory 기준</strong>
+              $800M~$1.2B는 더 높은 revenue definition, AI premium, strategic control premium이 반영된 것으로 보입니다. 현재 내부 수치만으로는 $1.0B 이상을 정당화하기 어렵습니다.
+            </div>
+          </div>
+
+          <ul class="list">
+            <li><strong>가장 큰 쟁점</strong>내부 workbook의 2025 revenue 약 $67.3M와 외부 advisory의 ~$174M 추정치가 크게 다릅니다.</li>
+            <li><strong>의미</strong>revenue definition, 연결 범위, partner revenue 범위, public estimate quality 중 하나 이상이 어긋나 있다는 뜻입니다.</li>
+            <li><strong>실무 판단</strong>실사 전에는 $850M 이상 확정가보다, upfront 축소와 검증 가능한 earnout 확대가 더 합리적입니다.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="risks">
+          <div class="section-header">
+            <h2>핵심 리스크</h2>
+            <div class="tag">Regulatory + Execution</div>
+          </div>
+
+          <div class="risk-grid">
+            <div class="risk-card warning">
+              <div class="risk-title bad">Regulatory</div>
+              <strong>FINRA 이력과 change-of-control</strong>
+              2025-05-27 influencer marketing 제재, 2023-12-05 securities lending 제재, 2023-06-27 best execution / PFOF disclosure 제재가 확인됩니다. change-of-control 승인까지는 외부 자료상 6~12개월을 봐야 합니다.
+            </div>
+            <div class="risk-card warning">
+              <div class="risk-title bad">Financial</div>
+              <strong>현금소진과 자본투입</strong>
+              성장률은 높지만 현금창출 구조는 아직 완전히 검증되지 않았습니다. 내부 검토안의 약 $120M capital injection 가정은 충분히 현실적인 수준일 수 있습니다.
+            </div>
+            <div class="risk-card positive">
+              <div class="risk-title good">Commercial</div>
+              <strong>AUM 성장 속도는 매우 강함</strong>
+              고객 수보다 AUM이 더 빨리 증가하고 있어 wallet share 확대와 primary portfolio 전환 가능성이 보입니다.
+            </div>
+            <div class="risk-card warning">
+              <div class="risk-title bad">Execution</div>
+              <strong>해외 확장 실행력 검증 필요</strong>
+              2023년 7월 영국 진출 후 2024년 5월 3일 철수한 이력은 product-market fit과 international expansion playbook을 다시 봐야 한다는 신호입니다.
+            </div>
+          </div>
+
+          <p class="footnote">BrokerCheck 기준 Open to the Public Investing, Inc.의 CRD는 127818이며, 2026년 4월 기준 regulatory events 4건이 표시됩니다.</p>
+        </section>
+
+        <section class="section" id="dd">
+          <div class="section-header">
+            <h2>실사에서 가장 먼저 확인할 질문</h2>
+            <div class="tag">Confirmatory DD</div>
+          </div>
+
+          <div class="qa-grid">
+            <div class="qa-card">
+              <strong>1. Revenue Definition</strong>
+              2025 revenue $67.3M와 외부 추정 $174M 차이의 원인은 무엇인가. HoldCo, broker-dealer, advisor, partner revenue가 각각 어떻게 연결되는가.
+            </div>
+            <div class="qa-card">
+              <strong>2. Regulatory Capital</strong>
+              2025년 말과 2026년 1분기 기준 NCR, excess net capital, liquidity profile은 어떠한가.
+            </div>
+            <div class="qa-card">
+              <strong>3. Customer Quality</strong>
+              funded customers가 Q4 2023에서 Q1 2024로 급감한 이유가 정의 변경인지 실제 이탈인지 확인 필요.
+            </div>
+            <div class="qa-card">
+              <strong>4. AI Monetization</strong>
+              Alpha, Generated Assets, Agents 사용이 실제로 deposits, AUM retention, high-value cohort conversion을 얼마나 올리는가.
+            </div>
+            <div class="qa-card">
+              <strong>5. Acquired Books</strong>
+              Stocktwits, Carta, Tornado로부터 유입된 계정의 retention, AUM 이전율, CAC payback은 얼마인가.
+            </div>
+            <div class="qa-card">
+              <strong>6. Counterparty Dependence</strong>
+              Apex, Zero Hash, Jiko 등 핵심 파트너 계약의 economics와 change-of-control 조항은 무엇인가.
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="workstreams">
+          <div class="section-header">
+            <h2>권장 DD 워크스트림</h2>
+            <div class="tag">Execution Plan</div>
+          </div>
+
+          <div class="track-grid">
+            <div class="track-card">
+              <strong>Finance / Accounting</strong>
+              월별 매출 브리지, product P&amp;L, cohort GP, adjusted EBITDA add-back, 2026 budget vs actual, month-end cash waterfall.
+            </div>
+            <div class="track-card">
+              <strong>Regulatory / Legal</strong>
+              FINRA/SEC/state exam history, 1017 filing roadmap, remediation progress, complaints / arbitrations / disclosure controls.
+            </div>
+            <div class="track-card">
+              <strong>Commercial / Growth</strong>
+              gross adds, funded conversion, net deposits, channel mix, book acquisition 성과, UK exit 원인 분석.
+            </div>
+            <div class="track-card">
+              <strong>Product / AI / Tech</strong>
+              AI stack dependency, model governance, suitability controls, data rights, roadmap realism, observability.
+            </div>
+            <div class="track-card">
+              <strong>HR / Organization</strong>
+              founders 의사, co-CEO 체제 지속 가능성, compliance leadership depth, retention pool 재설계.
+            </div>
+            <div class="track-card">
+              <strong>PMI / Integration</strong>
+              브랜드 자율성은 유지하되, capital allocation, risk, compliance는 Mirae 통제 강화. 시스템 통합은 light-touch로 시작.
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="structure">
+          <div class="section-header">
+            <h2>권장 딜 구조</h2>
+            <div class="tag">Structure Over Headline Price</div>
+          </div>
+
+          <ul class="list">
+            <li><strong>Upfront 보수적 유지</strong>현 시점 자료상 headline price를 밀어 올리기보다 downside protection이 우선입니다.</li>
+            <li><strong>Earnout 정량 KPI 연동</strong>AUM, net deposits, gross profit, regulatory capital 유지처럼 사후 검증 가능한 지표에 연결해야 합니다.</li>
+            <li><strong>Capital Injection Neutralization</strong>인수자 자금투입으로 KPI가 인위적으로 쉬워지지 않도록 formula adjustment가 필요합니다.</li>
+            <li><strong>Key Person Lock-in</strong>founders, co-CEO, product, compliance 핵심 인력은 3년 이상 vesting과 retention 구조로 잠그는 것이 바람직합니다.</li>
+            <li><strong>Governance Design</strong>브랜드와 제품 속도는 유지하되, 리스크·자본·규제는 Mirae 통제하에 두는 구조가 적절합니다.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="sources">
+          <div class="section-header">
+            <h2>참고 자료</h2>
+            <div class="tag">Sources</div>
+          </div>
+          <p>로컬 내부 자료와 공식 웹 자료, BrokerCheck 자료를 함께 사용했습니다. 보고서 해석에서 최신성 확인이 필요한 항목은 2026-04-20 기준으로 다시 검증했습니다.</p>
+
+          <div class="source-list">
+            <a href="https://public.com/" target="_blank" rel="noreferrer">https://public.com/</a>
+            <a href="https://public.com/about-us" target="_blank" rel="noreferrer">https://public.com/about-us</a>
+            <a href="https://public.com/generated-asset" target="_blank" rel="noreferrer">https://public.com/generated-asset</a>
+            <a href="https://public.com/disclosures" target="_blank" rel="noreferrer">https://public.com/disclosures</a>
+            <a href="https://help.public.com/en/articles/9354354-what-is-alpha" target="_blank" rel="noreferrer">https://help.public.com/en/articles/9354354-what-is-alpha</a>
+            <a href="https://help.public.com/en/articles/10491572-stocktwits-tornado-and-carta-statements-and-tax-forms" target="_blank" rel="noreferrer">https://help.public.com/en/articles/10491572-stocktwits-tornado-and-carta-statements-and-tax-forms</a>
+            <a href="https://files.brokercheck.finra.org/firm/firm_127818.pdf" target="_blank" rel="noreferrer">https://files.brokercheck.finra.org/firm/firm_127818.pdf</a>
+            <a href="https://medium.com/the-public-blog/public-announces-135m-series-d-2-capital-raise-8eef9f33b2ad" target="_blank" rel="noreferrer">https://medium.com/the-public-blog/public-announces-135m-series-d-2-capital-raise-8eef9f33b2ad</a>
+          </div>
+
+          <a class="top-link" href="#top">Back to Top</a>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
