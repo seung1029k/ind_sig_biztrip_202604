@@ -391,6 +391,43 @@
       font-weight: 700;
     }
 
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(243, 115, 33, 0.28);
+      background: var(--soft);
+    }
+
+    .hero-links .nav-link {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
+
+    .hero-links .nav-link:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
     @media (max-width: 980px) {
       .layout {
         grid-template-columns: 1fr;
@@ -455,6 +492,13 @@
           <span>업프론트보다 구조 설계가 중요</span>
         </div>
       </div>
+
+      <div class="nav-row hero-links">
+        <a class="nav-link" href="#document-suite">문서 바로가기</a>
+        <a class="nav-link" href="publiccom_dd_masterplan_20260420.html">Master Plan</a>
+        <a class="nav-link" href="publiccom_vdr_request_list_20260420.html">VDR List</a>
+        <a class="nav-link" href="publiccom_management_interview_guide_20260420.html">Interview Guide</a>
+      </div>
     </header>
 
     <div class="layout">
@@ -468,6 +512,7 @@
           <a href="#dd">실사 질문</a>
           <a href="#workstreams">워크스트림</a>
           <a href="#structure">딜 구조</a>
+          <a href="#document-suite">문서 바로가기</a>
           <a href="#sources">참고 자료</a>
         </nav>
         <div class="panel-note">
@@ -668,7 +713,7 @@
           </ul>
         </section>
 
-        <section class="section">
+        <section class="section" id="document-suite">
           <div class="section-header">
             <h2>DD Document Suite</h2>
             <div class="tag">More Tools</div>
